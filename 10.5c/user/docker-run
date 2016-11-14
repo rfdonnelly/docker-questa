@@ -2,4 +2,4 @@
 
 # Run docker with GUI support
 
-docker run -it -e DISPLAY -v $HOME/.Xauthority:/home/docker/.Xauthority --net=host -v $PWD/shared:/home/docker/shared mentor-questa-10.5c $@
+docker run -it -e DISPLAY -v $HOME/.Xauthority:/home/docker/.Xauthority --net=host -v $PWD/shared:/shared -w /shared -u $(id -u) mentor-questa-10.5c $@

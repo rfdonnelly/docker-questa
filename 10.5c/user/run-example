@@ -1,10 +1,8 @@
 #!/bin/sh
 
 mkdir shared
-# Make writable by everyone so docker can access
-chmod 777 shared
-
 cp example/hello_world.v shared/hello_world.v
-./docker-run vlog shared/hello_world.v -work shared/work
-./docker-run vopt -work shared/work hello_world -o hello_world_opt
-./docker-run vsim -batch -work shared/work -do 'run' -do 'exit' hello_world_opt
+
+./docker-run vlog hello_world.v 
+./docker-run vopt hello_world -o hello_world_opt
+./docker-run vsim -batch -do 'run' -do 'exit' hello_world_opt
