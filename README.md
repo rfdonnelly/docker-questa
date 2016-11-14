@@ -2,14 +2,7 @@
 
 ## Building
 
-1. Download and place the following files in `10.5c/base`
-
-   * install.linux64
-   * questa_sim-base.mis
-   * questa_sim-docs.mis
-   * questa_sim-gcc-linux_x86_64.mis
-   * questa_sim-linux_x86_64.mis
-   * regassistuvm_4.6_ixl.mis
+1. Update the links in `10.5c/base/download-packages.sh`
 
 2. Build the base image
 
