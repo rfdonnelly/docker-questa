@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -x
+
+docker build $@ -t questa-gui:2019.1 .

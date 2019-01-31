@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -x
+
+docker run -it -e MGLS_LICENSE_FILE -v "$PWD/shared":/shared -w /shared -u $(id -u) questa-user $@

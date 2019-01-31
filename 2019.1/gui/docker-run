@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Run docker with GUI support
+
+set -x
+
+docker run -it -e DISPLAY -e MGLS_LICENSE_FILE -v "$HOME/.Xauthority":/home/docker/.Xauthority -v "$PWD/shared":/shared -w /shared -u $(id -u) questa-gui:2019.1 $@
