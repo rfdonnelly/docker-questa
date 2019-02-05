@@ -39,8 +39,6 @@ QUESTA_ROOT=$1
 rm -rf $QUESTA_ROOT/questasim/drill_src
 # 12260
 rm -rf $QUESTA_ROOT/questasim/vhdl_src
-# 22280
-rm -rf $QUESTA_ROOT/questasim/verilog_src
 # 28764
 rm -rf $QUESTA_ROOT/questasim/avm
 # 78496
