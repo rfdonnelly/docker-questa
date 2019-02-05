@@ -1,6 +1,7 @@
-# Questa Base Image
+# Docker Image for Questa
 
-Provides a base image for Questa 2019.1.
+Provides a base image for Questa 2019.1 with support for running UVM batch
+simulations.
 
 It does not include X11 support but can be added via an additional layer.
 

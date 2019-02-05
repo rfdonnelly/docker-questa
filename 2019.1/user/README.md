@@ -14,8 +14,13 @@ required username via the `USER` build argument.
 
 ## Run
 
-Modify the contents of `shared/` and `shared/Makefile` as desired then run.
+1. Set the `MGLS_LICENSE_FILE` environment variable.
 
-```sh
-./docker-run
-```
+2. Modify the contents of `shared/` and `shared/Makefile` as
+   desired then run.
+
+3. Run
+
+   ```sh
+   ./docker-run
+   ```

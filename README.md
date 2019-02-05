@@ -1,33 +1,22 @@
-# Docker Image for Mentor Questa
+# Docker Images for Questa
 
-## Building
+This repository provides Docker images for Questa.
 
-1. Update the links in `10.5c/base/download-packages.sh`
+These images were created for running UVM testbenches via a continuous
+integration service with a FLEXnet license server.
 
-2. Build the base image
+## Image Types
 
-   ```sh
-   cd 10.5c/base
-   ./docker-build
-   ```
+The following image types are provided:
 
-3. Build the user image
-   
-   ```sh
-   cd 10.5c/user
-   ./docker-build
-   ```
+* base - Provides just enough for running UVM batch simulations
+* user - A Verilog testbench template
+* gui - Experimental image with X11 support
 
-## Running
+## Usage
 
-```sh
-cd 10.5c/user
-./docker-run <questa-command> <arguments>
-```
-
-### Example
-
-   ```sh
-   cd 10.5c/user
-   ./run-example
-   ```
+1. Build the base image
+2. Push to registry
+3. Copy the user Dockerfile template into user testbench
+4. Setup continuous integration service to use user
+   Dockerfile
