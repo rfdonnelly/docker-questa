@@ -56,3 +56,5 @@ rm -rf $QUESTA_ROOT/questasim/RUVM_4.6
 # 192204
 rm -rf $QUESTA_ROOT/questasim/vm_src
 # total: 975272
+
+$QUESTA_ROOT/questasim/bin/vmap -del mtiAvm mtiOvm
