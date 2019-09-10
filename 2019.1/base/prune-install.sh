@@ -55,4 +55,7 @@ rm -rf $QUESTA_ROOT/questasim/uvm-1.1c
 rm -rf $QUESTA_ROOT/questasim/RUVM_4.6
 # total: 975272
 
+rm -rf $QUESTA_ROOT/questasim/gcc-4.5.0-linux_x86_64
+rm -rf $QUESTA_ROOT/questasim/gcc-4.7.4-linux_x86_64
+
 $QUESTA_ROOT/questasim/bin/vmap -del mtiAvm mtiOvm

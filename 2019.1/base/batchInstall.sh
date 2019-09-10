@@ -86,5 +86,6 @@ exit $LASTEXIT
 	<platform value="Linux"/>
 	<release name="2019.1">
 		<product name="Questa SIM 64-bit" productroot=""/>
+		<product name="GCC 64-bit" productroot=""/>
 	</release>
 </batchFile>
