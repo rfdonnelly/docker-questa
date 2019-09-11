@@ -19,5 +19,8 @@ RUN cd /tmp \
 FROM centos:6
 COPY --from=intermediate /opt /opt
 
+# Needed for "DPI Export Compilation" for UVM
+RUN yum install -y gcc && yum clean all
+
 ENV QUESTA_ROOT /opt/mentor/questa/2019.1/questasim
 ENV PATH $QUESTA_ROOT/bin:$PATH
