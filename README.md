@@ -59,5 +59,37 @@ Common components:
 * questa_mvc_src/sv/mvc_*
 
 Protocol components
-* questa_mvc_core/linux_x86_64_gcc-5.3.0/lib<protocol>*
-* questa_mvc_src/sv/s<protocol>
+* questa_mvc_core/linux_x86_64_gcc-5.3.0/lib\<protocol>*
+* questa_mvc_src/sv/\<protocol>
+   
+The following script was used for Questa VIP v10.7a.
+
+```sh
+#!/bin/sh
+
+# Usage: package-qvip <protocols>
+# Example: package-qvip pci spacewire
+
+pwd=$PWD
+
+cd $QUESTA_MVC_HOME
+
+protocols="$@"
+protocol_files=
+
+for protocol in $protocols; do
+    protocol_files="$protocol_files questa_mvc_core/linux_x86_64_gcc-5.3.0/lib${protocol}_*"
+    protocol_files="$protocol_files questa_mvc_src/sv/${protocol}"
+done
+
+tar czf \
+    $pwd/qvip.tgz \
+    include/ \
+    linux_x86_64/ \
+    questa_mvc_core/include/ \
+    questa_mvc_core/lib/ \
+    questa_mvc_core/linux_x86_64_gcc-5.3.0/libquesta* \
+    questa_mvc_src/sv/mvc_* \
+    $protocol_files
+
+```
