@@ -40,7 +40,7 @@ Prune
 * The Questa provided GCC installs several versions.  Remove all but the latest GCC from $QUESTA_ROOT
 * AVM, OVM, and old versions of UVM may be pruned.  See [prune-install.sh](https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh).  But note, these must also be removed from modelsim.ini.  See [prune-install.sh:61](https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh#L61)
 
-Additional savings may be had but using a smaller base image (e.g. [Alpine](https://hub.docker.com/_/alpine)).
+Additional savings may be had by using a smaller base image (e.g. [Alpine](https://hub.docker.com/_/alpine)).
 
 ### Questa VIP
 
