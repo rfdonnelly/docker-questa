@@ -1,0 +1,29 @@
+= Questa 2020.4_2
+
+:version: 2020.4_2
+:questa: Questa {version}
+
+This provides a method for creating a Docker image for {questa}.
+
+The batch install feature of the {questa} installer seems to be broken.
+It wants to invoke the GUI.
+To workaround this, we'll install {questa} on the host machine, tar-zip it, then copy and extract it into the Docker image.
+
+== Install
+
+Download and run the {questa} installer.
+
+ ./questa_sim-{version}.aol
+
+Install the following components to `/opt/mentor/questa/{version}`:
+
+* Questa 64-bit
+* GCC 64-bit
+
+== Package
+
+ tar czf questa_sim-{version}.tar.gz /opt/mentor/questa/{version}
+
+== Build
+
+ docker build -t questa:{version} .
