@@ -18,7 +18,7 @@ Download and run the {questa} installer.
 Install the following components to `/opt/mentor/questa/{version}`:
 
 * Questa 64-bit
-* GCC 64-bit
+* GCC 64-bit (for "DPI Export Compilation")
 
 == Package
 

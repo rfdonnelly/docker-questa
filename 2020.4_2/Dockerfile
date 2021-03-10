@@ -23,7 +23,8 @@ COPY --from=intermediate $QUESTA_ROOT $QUESTA_ROOT
 
 # Install dependencies
 #
-# * gcc - For "DPI Export Compilation" for UVM (even though Questa provides GCC)
+# * gcc - The Questa provided GCC is required for QVIP.  The system provided
+#   GCC is required for "DPI Export Compilation" for UVM.
 # * libX11, libXext, libXft - For VRM batch mode
 RUN yum install -y \
         gcc \
