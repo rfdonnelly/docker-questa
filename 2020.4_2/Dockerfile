@@ -28,11 +28,14 @@ COPY --from=intermediate $QUESTA_ROOT $QUESTA_ROOT
 # * gcc - The Questa provided GCC is required for QVIP.  The system provided
 #   GCC is required for "DPI Export Compilation" for UVM.
 # * libX11, libXext, libXft - For VRM batch mode
+# * libSM - For QVIP 2020+. QVIP 2020+ depends on Qt (provided by QVIP) which
+#   depends on libSM (not provided).
 RUN yum install -y \
         gcc \
         libX11 \
         libXext \
         libXft \
+        libSM \
     && yum clean all
 
 ARG QUESTA_ROOT
