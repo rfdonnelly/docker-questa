@@ -2,7 +2,7 @@
 ARG QUESTA_VERSION=2020.4_2
 ARG QUESTA_ROOT=/opt/mentor/questa/$QUESTA_VERSION
 
-FROM centos:8 as intermediate
+FROM centos:7 as intermediate
 
 ARG QUESTA_VERSION
 ARG QUESTA_ROOT
@@ -18,7 +18,7 @@ RUN cd / \
     && ./prune.sh $QUESTA_ROOT \
     && rm -rf /tmp/*
 
-FROM centos:8
+FROM centos:7
 COPY --from=intermediate $QUESTA_ROOT $QUESTA_ROOT
 
 # Install dependencies
