@@ -1,7 +1,7 @@
-= Questa 2020.4_2
-
 :version: 2020.4_2
 :questa: Questa {version}
+
+= {questa}
 
 This provides a method for creating a Docker image for {questa}.
 
@@ -13,7 +13,10 @@ To workaround this, we'll install {questa} on the host machine, tar-zip it, then
 
 Download and run the {questa} installer.
 
- ./questa_sim-{version}.aol
+[source,sh,subs="attributes+"]
+----
+./questa_sim-{version}.aol
+----
 
 Install the following components to `/opt/mentor/questa/{version}`:
 
@@ -22,8 +25,14 @@ Install the following components to `/opt/mentor/questa/{version}`:
 
 == Package
 
- tar czf questa_sim-{version}.tar.gz /opt/mentor/questa/{version}
+[source,sh,subs="attributes+"]
+----
+tar czf questa_sim-{version}.tar.gz /opt/mentor/questa/{version}
+----
 
 == Build
 
- docker build -t questa:{version} .
+[source,sh,subs="attributes+"]
+----
+docker build -t questa:{version} .
+----
