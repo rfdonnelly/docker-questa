@@ -19,6 +19,8 @@ RUN cd / \
     && rm -rf /tmp/*
 
 FROM centos:7
+
+ARG QUESTA_ROOT
 COPY --from=intermediate $QUESTA_ROOT $QUESTA_ROOT
 
 # Install dependencies
