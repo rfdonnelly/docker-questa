@@ -8,7 +8,7 @@ ARG QUESTA_VERSION
 ARG QUESTA_ROOT
 ENV QUESTA_ROOT=$QUESTA_ROOT
 
-COPY . /tmp
+COPY questa_sim-$QUESTA_VERSION.tar.gz prune.sh /tmp
 
 # Install Questa using the generated batchInstall.sh.
 # Then prune the install of unnecessary dependencies.
