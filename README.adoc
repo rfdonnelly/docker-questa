@@ -159,9 +159,9 @@ Prune:
 * The Questa provided GCC installs several versions.
 Remove all but the latest GCC from `$QUESTA_ROOT`.
 * AVM, OVM, and old versions of UVM may be pruned.
-See [prune-install.sh](https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh).
+See https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh[prune-install.sh].
 But note, these must also be removed from `modelsim.ini`.
-See [prune-install.sh:61](https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh#L61)
+See https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh#L61[prune-install.sh:61].
 
 Additional savings may be had by using a smaller base image (e.g. [Alpine](https://hub.docker.com/_/alpine)).
 
@@ -179,18 +179,18 @@ Exclude:
 
 Common components:
 
-* include/
-* linux_x86_64/
-* questa_mvc_core/include/
-* questa_mvc_core/lib/
-* questa_mvc_core/linux_x86_64_gcc-5.3.0/libquesta*
-* questa_mvc_src/sv/mvc_*
+* `include/`
+* `linux_x86_64/`
+* `questa_mvc_core/include/`
+* `questa_mvc_core/lib/`
+* `questa_mvc_core/linux_x86_64_gcc-7.4.0/libquesta*`
+* `questa_mvc_src/sv/mvc_*`
 
 Protocol components:
 
-* questa_mvc_core/linux_x86_64_gcc-5.3.0/lib\<protocol>*
-* questa_mvc_src/sv/\<protocol>
-   
+* `questa_mvc_core/linux_x86_64_gcc-7.4.0/lib<protocol>*`
+* `questa_mvc_src/sv/<protocol>`
+
 The following script was used for Questa VIP v10.7a.
 It may work on future versions.
 
@@ -209,7 +209,7 @@ protocols="$@"
 protocol_files=
 
 for protocol in $protocols; do
-    protocol_files="$protocol_files questa_mvc_core/linux_x86_64_gcc-5.3.0/lib${protocol}_*"
+    protocol_files="$protocol_files questa_mvc_core/linux_x86_64_gcc-7.4.0/lib${protocol}_*"
     protocol_files="$protocol_files questa_mvc_src/sv/${protocol}"
 done
 
@@ -219,7 +219,7 @@ tar czf \
     linux_x86_64/ \
     questa_mvc_core/include/ \
     questa_mvc_core/lib/ \
-    questa_mvc_core/linux_x86_64_gcc-5.3.0/libquesta* \
+    questa_mvc_core/linux_x86_64_gcc-7.4.0/libquesta* \
     questa_mvc_src/sv/mvc_* \
     $protocol_files
 ----
