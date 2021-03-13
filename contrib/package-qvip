@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# NAME
+#
+#    package-qvip
+#
+# SYNOPSIS
+#
+#     package-qvip <protocol> [<protocol>...] > qvip.tar.gz
+#
+# DESCRIPTION
+#
+#     Creates a minimal tar-gzip package for Questa VIP.  The package will
+#     contain only the protocols necessary and the necessary dependencies.
+#
+#     Known to work with Questa VIP 2020.4.
+#
+# HISTORY
+#
+#     This script was created by first copying all QVIP files, then iteratively
+#     cutting away and running simulation until the minimal set was found.
+#
+# EXAMPLE
+#
+#     package-qvip pci mil_1553 spacewire > qvip.tar.gz
+#     tar tf qvip.tar.gz
+
+pwd=$PWD
+
+cd $QUESTA_MVC_HOME
+
+protocols="$@"
+protocol_files=
+
+gcc_version="linux_x86_64_gcc-7.4.0"
+
+for protocol in $protocols; do
+    protocol_files="$protocol_files questa_mvc_core/$gcc_version/lib${protocol}_*"
+    protocol_files="$protocol_files questa_mvc_src/sv/${protocol}"
+done
+
+tar cz \
+    include/ \
+    linux_x86_64/ \
+    questa_mvc_core/include/ \
+    questa_mvc_core/lib/ \
+    questa_mvc_core/$gcc_version/libquesta* \
+    questa_mvc_core/$gcc_version/libQt* \
+    questa_mvc_src/sv/mvc_* \
+    $protocol_files
