@@ -16,9 +16,10 @@ cd $QUESTA_ROOT/questasim
 
 pre_prune_size=$(get_path_size $QUESTA_ROOT)
 
-# Remove references to libraries we'll be removing
+# Remove or replace references to libraries we'll be removing
 bin/vmap -del mtiAvm >/dev/null
 bin/vmap -del mtiOvm >/dev/null
+bin/vmap mtiUvm '$MODEL_TECH/../uvm-1.2'
 
 # Remove all but one GCC.  Prefer the latest.  Keep gcc-7.4.0-linux_x86_64.
 echo "Removing unnecessary dependencies:"
