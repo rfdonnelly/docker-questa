@@ -163,7 +163,7 @@ See https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03cc
 But note, these must also be removed from `modelsim.ini`.
 See https://github.com/rfdonnelly/docker-questa/blob/68c9f73136aa959ef42273f03ccf30718bd1c491/2019.1/base/prune-install.sh#L61[prune-install.sh:61].
 
-Additional savings may be had by using a smaller base image (e.g. [Alpine](https://hub.docker.com/_/alpine)).
+Additional savings may be had by using a smaller base image (e.g. https://hub.docker.com/_/alpine[Alpine]).
 
 === Questa VIP
 
