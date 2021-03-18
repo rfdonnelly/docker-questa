@@ -1,0 +1,17 @@
+services:
+  questa:
+    build:
+      args:
+        - DOCKER_USER=${username}
+        - UID=${uid}
+        - GID=${gid}
+      context: .
+    hostname: ${hostname}
+    dns_search: ${domain}
+    volumes:
+      - .:/src
+    working_dir: /src
+    environment:
+      - MGLS_LICENSE_FILE
+
+

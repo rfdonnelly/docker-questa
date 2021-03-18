@@ -34,6 +34,7 @@ These images were created for running UVM testbenches via a continuous integrati
 [source,sh]
 .Build Image
 ----
+cd example
 docker build --build-arg DOCKER_USER=$username --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t questa .
 ----
 
@@ -131,6 +132,21 @@ vsim -batch -do 'run; exit;' optimized
 # exit
 # End time: 08:52:39 on Mar 12,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+----
+
+=== Docker Compose
+
+A Docker Compose file is also provided to simplify the above.
+
+[source,sh]
+----
+cd example
+
+export MGLS_LICENSE_FILE=...
+export username=...
+export hostname=...
+export domain=...
+uid=$(id -u) gid=$(id -g) docker-compose run questa make
 ----
 
 == Notes on Packaging
