@@ -130,4 +130,4 @@ export MGLS_LICENSE_FILE=...
 USER=$USER HOSTNAME=$HOSTNAME DOMAIN=$DOMAIN UID=$(id -u) GID=$(id -g) docker-compose run questa make
 ----
 
-Modify the `MGLS_LICENSE_FILE', `USER`, `HOSTNAME`, and `DOMAIN` environment variables as needed.
+Modify the `MGLS_LICENSE_FILE`, `USER`, `HOSTNAME`, and `DOMAIN` environment variables as needed.
