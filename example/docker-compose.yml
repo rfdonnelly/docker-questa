@@ -2,12 +2,13 @@ services:
   questa:
     build:
       args:
-        - DOCKER_USER=${username}
-        - UID=${uid}
-        - GID=${gid}
+        - USER
+        - UID
+        - GID
       context: .
-    hostname: ${hostname}
-    dns_search: ${domain}
+    user: $UID:$GID
+    hostname: ${HOSTNAME}
+    dns_search: ${DOMAIN}
     volumes:
       - .:/src
     working_dir: /src
