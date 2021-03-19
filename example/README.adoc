@@ -21,12 +21,12 @@
 [source,sh]
 .Build Image
 ----
-docker build --build-arg DOCKER_USER=$username --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t questa .
+docker build --build-arg USER=$USER --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t questa .
 ----
 
 Build args:
 
-* `DOCKER_USER` - Sets the username for the container.
+* `USER` - Sets the username for the container.
 Set per license server requirements.
 * `UID` - The host user ID.
 Used to sync the uid of the host and container.
@@ -38,7 +38,7 @@ Used to sync the gid of the host and container.
 [source,sh]
 .Run
 ----
-docker run -it -v $PWD:/src -w /src -u $(id -u):$(id -g) -e MGLS_LICENSE_FILE --hostname $hostname --dns-search $domain questa <command>
+docker run -it -v $PWD:/src -w /src -u $(id -u):$(id -g) -e MGLS_LICENSE_FILE --hostname $HOSTNAME --dns-search $DOMAIN questa <command>
 ----
 
 Options:
@@ -50,9 +50,9 @@ Options:
 Necessary for witing files with proper file ownership from the container to the shared volume.
 * `-e MGLS_LICENSE_FILE` - Pass the `MGLS_LICENSE_FILE` environment variable into the container.
 This environment variable defines the license servers for Questa.
-* `--hostname $hostname` - Set the hostname of the container.
+* `--hostname $HOSTNAME` - Set the hostname of the container.
 Set per license server requirements.
-* `--dns-search $domain` - Allows the license servers and other non-FQDN to be found on the domain (e.g. example.com).
+* `--dns-search $DOMAIN` - Allows the license servers and other non-FQDN to be found on the domain (e.g. example.com).
 
 Parameters:
 
@@ -63,7 +63,7 @@ Example:
 [source,sh]
 .Run example
 ----
-docker run -it -v $PWD:/shared -w /shared -u $(id -u):$(id -g) -e MGLS_LICENSE_FILE --hostname $(hostname) --dns-search $domain questa make
+docker run -it -v $PWD:/src -w /src -u $(id -u):$(id -g) -e MGLS_LICENSE_FILE --hostname $HOSTNAME --dns-search $DOMAIN questa make
 ----
 
 [listing]
