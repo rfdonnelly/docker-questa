@@ -63,40 +63,23 @@ Example:
 [source,sh]
 .Run example
 ----
-docker run -it -v $PWD:/src -w /src -u $(id -u):$(id -g) -e MGLS_LICENSE_FILE --hostname $HOSTNAME --dns-search $DOMAIN questa make
+docker run -it -v $PWD:/src -w /src -u $(id -u):$(id -g) -e MGLS_LICENSE_FILE --hostname $HOSTNAME --dns-search $DOMAIN questa qrun -quiet hello_world.v
 ----
 
 [listing]
 .Example output
 ----
-vlog -incr hello_world.v
-QuestaSim-64 vlog 2020.4_2 Compiler 2020.12 Dec  5 2020
-Start time: 08:52:39 on Mar 12,2021
-vlog -incr hello_world.v
--- Skipping module hello_world
-
-Top level modules:
-        hello_world
-End time: 08:52:39 on Mar 12,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-vopt hello_world -o optimized
-QuestaSim-64 vopt 2020.4_2 Compiler 2020.12 Dec  5 2020
-Start time: 08:52:39 on Mar 12,2021
-vopt hello_world -o optimized
-
-Top level modules:
-        hello_world
-
-Analyzing design...
--- Loading module hello_world
-Incremental compilation check found no design-units have changed.
-Optimized design name is optimized
-End time: 08:52:39 on Mar 12,2021, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
-vsim -batch -do 'run; exit;' optimized
+QuestaSim-64 qrun 2020.4_2 Utility 2020.12 Dec  5 2020
+Start time: 01:28:10 on Mar 20,2021
+qrun -quiet hello_world.v
+Creating library 'qrun.out/work'.
 ** Warning: setting ADDR_NO_RANDOMIZE failed - Operation not permitted.
-# vsim -batch -do "run; exit;" optimized
-# Start time: 08:52:39 on Mar 12,2021
+Reading pref.tcl
+
+# 2020.4_2
+
+# vsim -quiet -lib qrun.out/work -c -do "run -all; quit -f" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log
+# Start time: 01:28:14 on Mar 20,2021
 # //  Questa Sim-64
 # //  Version 2020.4_2 linux_x86_64 Dec  5 2020
 # //
@@ -111,13 +94,16 @@ vsim -batch -do 'run; exit;' optimized
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# Loading work.hello_world(fast)
-#
-# run
+# ** Warning: License feature 'msimhdlsim' will expire in 5 days.
+# run -all
 # hello world
-# exit
-# End time: 08:52:39 on Mar 12,2021, Elapsed time: 0:00:00
+#  quit -f
+# End time: 01:28:35 on Mar 20,2021, Elapsed time: 0:00:21
 # Errors: 0, Warnings: 0
+# *** Summary *********************************************
+#     qrun: Errors:   0, Warnings:   0
+#     vsim: Errors:   0, Warnings:   0
+#   Totals: Errors:   0, Warnings:   0
 ----
 
 == Docker Compose
@@ -127,7 +113,7 @@ A Docker Compose file is also provided to simplify the above.
 [source,sh]
 ----
 export MGLS_LICENSE_FILE=...
-USER=$USER HOSTNAME=$HOSTNAME DOMAIN=$DOMAIN UID=$(id -u) GID=$(id -g) docker-compose run questa make
+USER=$USER HOSTNAME=$HOSTNAME DOMAIN=$DOMAIN UID=$(id -u) GID=$(id -g) docker-compose run questa qrun -quiet hello_world.v
 ----
 
 Modify the `MGLS_LICENSE_FILE`, `USER`, `HOSTNAME`, and `DOMAIN` environment variables as needed.
