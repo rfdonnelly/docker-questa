@@ -29,7 +29,7 @@ These images were created for running UVM testbenches via a continuous integrati
 
 == Example
 
-See link:example/README.adoc[example/README.adoc].
+See link:example/[example/].
 
 == Notes on Packaging
 
