@@ -37,6 +37,7 @@ gcc_version="linux_x86_64_gcc-7.4.0"
 for protocol in $protocols; do
     protocol_files="$protocol_files questa_mvc_core/$gcc_version/lib${protocol}_*"
     protocol_files="$protocol_files questa_mvc_src/sv/${protocol}"
+    protocol_files="$protocol_files $(find questa_mvc_src/desc -type d -name ${protocol})"
 done
 
 tar cz \
