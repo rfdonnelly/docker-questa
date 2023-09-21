@@ -111,9 +111,18 @@ Reading pref.tcl
 A Docker Compose file is also provided to simplify the above.
 
 [source,sh]
+.Set environment
 ----
 export MGLS_LICENSE_FILE=...
-USER=$USER HOSTNAME=$HOSTNAME DOMAIN=$DOMAIN UID=$(id -u) GID=$(id -g) docker-compose run questa qrun -quiet hello_world.v
+export USER=...
+export HOSTNAME=...
+export DOMAIN=...
+export UID=$(id -u)
+export GID=$(id -g)
 ----
 
-Modify the `MGLS_LICENSE_FILE`, `USER`, `HOSTNAME`, and `DOMAIN` environment variables as needed.
+[source,sh]
+.Run
+----
+docker-compose run questa qrun -quiet hello_world.v
+----

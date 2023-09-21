@@ -2,13 +2,14 @@ services:
   questa:
     build:
       args:
+        - QUESTA_VERSION=2023.2_2
         - USER
         - UID
         - GID
       context: .
     user: $UID:$GID
-    hostname: ${HOSTNAME}
-    dns_search: ${DOMAIN}
+    hostname: $HOSTNAME
+    dns_search: $DOMAIN
     volumes:
       - .:/src
     working_dir: /src
