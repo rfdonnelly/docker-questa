@@ -2,7 +2,7 @@ services:
   questa:
     build:
       args:
-        - QUESTA_VERSION=2023.2_2
+        - QUESTA_VERSION
         - USER
         - UID
         - GID
