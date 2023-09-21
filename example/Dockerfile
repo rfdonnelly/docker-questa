@@ -1,4 +1,5 @@
-FROM questa:2020.4_2
+ARG QUESTA_VERSION=2023.2_2
+FROM questa:$QUESTA_VERSION
 
 ARG USER=docker
 RUN useradd --create-home --user-group --shell /bin/bash $USER \

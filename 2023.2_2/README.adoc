@@ -1,0 +1,49 @@
+:questa_version: 2023.2_2
+:questa: Questa {questa_version}
+:questa_root: /opt/mentor/questa/{questa_version}
+:questa_root_orig: {questa_root}.orig
+
+= {questa}
+
+This provides a method for creating a Docker image for {questa}.
+
+The batch install feature of the {questa} installer seems to be broken.
+It wants to invoke the GUI.
+To workaround this, we'll install {questa} on the host machine, tar-zip it, then copy and extract it into the Docker image.
+
+== Install
+
+Download and run the {questa} installer.
+
+[source,sh,subs="attributes+"]
+----
+./questa_sim-{questa_version}.aol
+----
+
+Install the following components to `{questa_root_orig}`:
+
+* Questa 64-bit
+* GCC 64-bit (to support use of Questa VIP)
+
+== Prune
+
+Create a pruned copy.
+
+[source,sh,subs="attributes+"]
+----
+./prune.sh {questa_root_orig} {questa_root}
+----
+
+== Package
+
+[source,sh,subs="attributes+"]
+----
+tar czf questa_sim-{questa_version}.tar.gz {questa_root}
+----
+
+== Build
+
+[source,sh,subs="attributes+"]
+----
+docker build -t questa:{questa_version} .
+----
