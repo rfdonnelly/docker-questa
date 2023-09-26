@@ -30,11 +30,14 @@ echo "  Upgrading UVM from 1.1d to 1.2"
 bin/vmap -modelsimini modelsim.ini mtiUvm '$MODEL_TECH/../uvm-1.2' > /dev/null
 chmod -w modelsim.ini
 
-# Remove all but one GCC.  Prefer the latest.  Keep gcc-7.4.0-linux_x86_64.
+# Remove all but one GCC:
+#
+# * Remove gcc-10.3.0-linux_x86_64 - Bigger and new features not needed
+# * Keep gcc-7.4.0-linux_x86_64 - Smaller and backwards compat with older QVIP
 echo "\nINFO: Removing unnecessary dependencies\n"
 for path in \
     linux_x86_64/VisualizerRls \
-    gcc-7.4.0-linux_x86_64 \
+    gcc-10.3.0-linux_x86_64 \
     udbplayer \
     examples \
     uvm-1.1c \
