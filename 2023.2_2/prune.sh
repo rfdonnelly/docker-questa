@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 print_subpath_sizes() {
     echo "\nINFO: Top 10 largest paths remaining\n"
     du -s * | sort -n | tail -n10 | tac | awk '{print $2}' | xargs du -sh | sed 's/^/  /'
