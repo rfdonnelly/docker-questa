@@ -1,6 +1,6 @@
 :questa_version: 2023.2_2
 :questa: Questa {questa_version}
-:questa_root: /opt/mentor/questa/{questa_version}
+:questa_root: /opt/siemens/questa/{questa_version}
 :questa_root_orig: {questa_root}.orig
 
 = {questa}

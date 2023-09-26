@@ -1,6 +1,6 @@
 # Use a multi-stage build to prevent having to carry forward the installer
 ARG QUESTA_VERSION=2023.2_2
-ARG QUESTA_ROOT=/opt/mentor/questa/$QUESTA_VERSION
+ARG QUESTA_ROOT=/opt/siemens/questa/$QUESTA_VERSION
 
 FROM rockylinux:8 as intermediate
 
