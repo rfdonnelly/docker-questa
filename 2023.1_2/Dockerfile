@@ -25,6 +25,7 @@ COPY --from=intermediate $QUESTA_ROOT $QUESTA_ROOT
 # * libSM - For QVIP 2020+. QVIP 2020+ depends on Qt (provided by QVIP) which
 #   depends on libSM (not provided).
 # * libxkbcommon - For QVIP 2022+.
+# * python, pyyaml - For UVMF
 RUN yum install -y \
         gcc \
         libX11 \
@@ -32,7 +33,11 @@ RUN yum install -y \
         libXft \
         libSM \
         libxkbcommon \
+        python3 \
+        python3-pyyaml \
     && yum clean all
+
+RUN alternatives --set python /usr/bin/python3
 
 ARG QUESTA_ROOT
 ENV QUESTA_ROOT=$QUESTA_ROOT/questasim
